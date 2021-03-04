@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: wx
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.107.92.114:3306/wx?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password:
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+  freemarker:
+    suffix: .ftl
+    cache: false
+    content-type: text/html
+    request-context-attribute: request
+    settings:
+      number_format: 0.##
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mappers/*.xml
+#logging:
+#  pattern:
+#    console: "%green(%d{yyyy�\MM�\dd HH:mm:ss}) [%thread] %highlight(%-5level) %yellow(%logger{36}) - %msg%n"
